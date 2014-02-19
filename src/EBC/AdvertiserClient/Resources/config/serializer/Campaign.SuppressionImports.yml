@@ -1,0 +1,4 @@
+EBC\AdvertiserClient\Campaign\SuppressionImports:
+    properties:
+        items:
+            type: array<EBC\AdvertiserClient\Campaign\SuppressionImport>

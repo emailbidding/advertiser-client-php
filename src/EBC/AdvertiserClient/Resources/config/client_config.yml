@@ -1,0 +1,6 @@
+scheme: https
+host: api.emailbidding.com
+basePath: /api/p/advertisers
+request.options:
+    headers:
+        Accept: application/json

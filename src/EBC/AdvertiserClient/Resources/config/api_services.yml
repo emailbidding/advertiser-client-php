@@ -1,0 +1,17 @@
+name: Advertiser Client
+baseUrl: "{scheme}://{host}{+basePath}/{advertiserId}"
+description: Advertiser Client
+operations:
+    getCampaignSuppressionImports:
+        httpMethod: GET
+        uri: campaigns/{campaignId}/suppressions/imports
+        responseClass: 'EBC\AdvertiserClient\Campaign\SuppressionImports'
+        summary: Returns the suppression imports for the given campaign
+        data:
+            acceptedStatusCodes: 200
+        parameters:
+            campaignId:
+                location: uri
+                description: Id of the campaign to use
+                type: integer
+                required: true
