@@ -1,0 +1,6 @@
+EBC\AdvertiserClient\Campaign\SuppressionImportResponse:
+    properties:
+        totalEmails:
+            type: integer
+        originalFilename:
+            type: string
