@@ -15,3 +15,17 @@ operations:
                 description: Id of the campaign to use
                 type: integer
                 required: true
+
+    postCampaignSuppressionImport:
+        httpMethod: POST
+        uri: campaigns/{campaignId}/suppressions/imports
+        responseClass: 'EBC\AdvertiserClient\Campaign\SuppressionImportResponse'
+        summary: Save a campaign suppression import
+        data:
+            acceptedStatusCodes: 200
+        parameters:
+            campaignId:
+                location: uri
+                description: Id of the campaign to use
+                type: integer
+                required: true

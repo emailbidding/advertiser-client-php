@@ -19,5 +19,9 @@ class AdvertiserClientTest extends TestCase
 {
     public function testTemp()
     {
+        $client = new AdvertiserClient();
+        $client->setAdvertiser(2, 'thekey', 'thesecret');
+
+//        var_dump($client->getCampaignSuppressionImports(2));
     }
 } 
