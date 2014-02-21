@@ -16,16 +16,34 @@ operations:
                 type: integer
                 required: true
 
-    postCampaignSuppressionImport:
+    createCampaignSuppressionImport:
         httpMethod: POST
         uri: campaigns/{campaignId}/suppressions/imports
         responseClass: 'EBC\AdvertiserClient\Campaign\SuppressionImportResponse'
         summary: Save a campaign suppression import
         data:
-            acceptedStatusCodes: 200
+            acceptedStatusCodes: 201
         parameters:
             campaignId:
                 location: uri
                 description: Id of the campaign to use
                 type: integer
                 required: true
+            suppression_import:
+                location: json
+                description: The form of suppression
+                type: object
+                required: true
+                properties:
+                    source:
+                        location: json
+                        required: true
+                        type: string
+                    location:
+                        location: json
+                        required: false
+                        type: string
+                    data:
+                        location: json
+                        required: false
+                        type: string

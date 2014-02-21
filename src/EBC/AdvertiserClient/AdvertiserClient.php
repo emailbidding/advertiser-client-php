@@ -83,11 +83,14 @@ class AdvertiserClient extends FastcClient
     /**
      * {@inheritdoc}
      */
-    public function postCampaignSuppressionImport($campaignId)
+    public function createCampaignSuppressionImport($campaignId, $source, $location, $data)
     {
         return $this->client->getCommand(
-            'postCampaignSuppressionImport',
-            array('campaignId' => $campaignId)
+            'createCampaignSuppressionImport',
+            array(
+                'campaignId'         => $campaignId,
+                'suppression_import' => array('source' => $source, 'location' => $location, 'data' => $data)
+            )
         )->execute();
     }
 }

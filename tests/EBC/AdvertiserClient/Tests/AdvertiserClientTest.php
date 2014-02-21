@@ -11,17 +11,36 @@
 namespace EBC\AdvertiserClient\Tests;
 
 use EBC\AdvertiserClient\AdvertiserClient;
+use Guzzle\Http\Message\Response;
+use Guzzle\Plugin\Mock\MockPlugin;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 /**
  * AdvertiserClientTest
  */
 class AdvertiserClientTest extends TestCase
 {
-    public function testTemp()
+    public function testCreateCampaignSuppressionImport()
     {
         $client = new AdvertiserClient();
-        $client->setAdvertiser(2, 'thekey', 'thesecret');
 
-//        var_dump($client->getCampaignSuppressionImports(2));
+        $plugin = new MockPlugin();
+        $plugin->addResponse(new Response(201));
+        $client->addSubscriber($plugin);
+
+        $client->setAdvertiser(2, 'thekey', 'thesecret');
+        $client->createCampaignSuppressionImport(1, 'source', 'location', 'data');
+    }
+
+    public function testGetCampaignSuppressionImports()
+    {
+        $client = new AdvertiserClient();
+
+        $plugin = new MockPlugin();
+        $plugin->addResponse(new Response(200));
+        $client->addSubscriber($plugin);
+
+        $client->setAdvertiser(2, 'thekey', 'thesecret');
+        $client->getCampaignSuppressionImports(1);
     }
 } 
