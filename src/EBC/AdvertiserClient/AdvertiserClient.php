@@ -22,7 +22,7 @@ use EBT\EBDate\Serializer\EBDateTimeHandler;
 /**
  * AdvertiserClient
  */
-class AdvertiserClient extends FastcClient
+class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
 {
     /**
      * @param array $config
