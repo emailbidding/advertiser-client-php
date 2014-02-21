@@ -1,7 +1,7 @@
 EBC\AdvertiserClient\Campaign\SuppressionImport:
     properties:
         importDate:
-            type: EBT\EBDate\EBDateTime
+            type: string
         name:
             type: string
         processedEmailAddresses:
@@ -9,4 +9,4 @@ EBC\AdvertiserClient\Campaign\SuppressionImport:
         totalEmailAddresses:
             type: integer
         lastProcessedDate:
-            type: EBT\EBDate\EBDateTime
+            type: string
