@@ -30,4 +30,12 @@ class SuppressionImports implements CollectionInterface
      * @var SuppressionImport[]
      */
     protected $items;
+
+    /**
+     * @param SuppressionImport[] $items
+     */
+    public function __construct(array $items)
+    {
+        $this->items = $items;
+    }
 } 

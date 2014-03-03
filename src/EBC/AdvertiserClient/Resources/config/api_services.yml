@@ -22,7 +22,7 @@ operations:
         responseClass: 'EBC\AdvertiserClient\Campaign\SuppressionImportResponse'
         summary: Save a campaign suppression import
         data:
-            acceptedStatusCodes: 201
+            acceptedStatusCodes: 200
         parameters:
             campaignId:
                 location: uri
