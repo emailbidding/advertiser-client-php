@@ -26,7 +26,19 @@ interface AdvertiserClientInterface
     /**
      * @return AdvertiserClient
      */
-    public function getBidAdvisor();
+    public function getBidAdvisor(
+        $country,
+        $publishers,
+        $lists,
+        $genders,
+        $ages,
+        $regions,
+        $zones,
+        $groups,
+        $category,
+        $minBid,
+        $campaign
+    );
 
     /**
      * @param integer $campaignId
