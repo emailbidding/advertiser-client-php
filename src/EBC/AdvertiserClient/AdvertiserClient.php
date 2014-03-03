@@ -72,6 +72,16 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
     /**
      * {@inheritdoc}
      */
+    public function getBidAdvisor()
+    {
+        return $this->client->getCommand(
+            'getBidAdvisor'
+        )->execute();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getCampaignSuppressionImports($campaignId)
     {
         return $this->client->getCommand(

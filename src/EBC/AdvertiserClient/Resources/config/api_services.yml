@@ -2,6 +2,14 @@ name: Advertiser Client
 baseUrl: "{scheme}://{host}{+basePath}/{advertiserId}"
 description: Advertiser Client
 operations:
+    getBidAdvisor:
+        httpMethod: GET
+        uri: bidadvisor
+        responseClass: 'EBC\AdvertiserClient\BidAdvisor\BidAdvisor'
+        summary: Return price points
+        data:
+            acceptedStatusCodes: 200
+
     getCampaignSuppressionImports:
         httpMethod: GET
         uri: campaigns/{campaignId}/suppressions/imports

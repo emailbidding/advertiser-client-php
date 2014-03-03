@@ -24,6 +24,11 @@ interface AdvertiserClientInterface
     public function setAdvertiser($advertiserId, $key, $secret);
 
     /**
+     * @return AdvertiserClient
+     */
+    public function getBidAdvisor();
+
+    /**
      * @param integer $campaignId
      *
      * @return SuppressionImports
