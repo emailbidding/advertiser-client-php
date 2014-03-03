@@ -1,0 +1,8 @@
+EBC\AdvertiserClient\BidAdvisor\BidAdvisor:
+    properties:
+        currentReach:
+            type: integer
+        maximumReach:
+            type: integer
+        pricePoints:
+            type: array
