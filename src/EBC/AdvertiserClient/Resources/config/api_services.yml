@@ -2,6 +2,70 @@ name: Advertiser Client
 baseUrl: "{scheme}://{host}{+basePath}/{advertiserId}"
 description: Advertiser Client
 operations:
+    getBidAdvisor:
+        httpMethod: GET
+        uri: bidadvisor
+        responseClass: 'EBC\AdvertiserClient\BidAdvisor\BidAdvisor'
+        summary: Return price points
+        data:
+            acceptedStatusCodes: 200
+        parameters:
+             country:
+                location: query
+                description: Country Id
+                type: string
+                required: true
+             publishers:
+                location: query
+                description: Publisher Id
+                type: string
+                required: false
+             lists:
+                location: query
+                description: Lists Id
+                type: string
+                required: false
+             genders:
+                location: query
+                description: Genders Id
+                type: string
+                required: false
+             ages:
+                location: query
+                description: Ages Id
+                type: string
+                required: false
+             regions:
+                location: query
+                description: Regions Id
+                type: string
+                required: false
+             zones:
+                location: query
+                description: Zones Id
+                type: string
+                required: false
+             groups:
+                location: query
+                description: Groups Id
+                type: string
+                required: false
+             category:
+                location: query
+                description: Category Id
+                type: string
+                required: true
+             minBid:
+                location: query
+                description: MinBid Id
+                type: float
+                required: false
+             campaign:
+                location: query
+                description: Campaign Id
+                type: integer
+                required: true
+
     getCampaignSuppressionImports:
         httpMethod: GET
         uri: campaigns/{campaignId}/suppressions/imports

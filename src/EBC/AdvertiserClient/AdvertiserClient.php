@@ -72,6 +72,40 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
     /**
      * {@inheritdoc}
      */
+    public function getBidAdvisor(
+        $country,
+        $publishers,
+        $lists,
+        $genders,
+        $ages,
+        $regions,
+        $zones,
+        $groups,
+        $category,
+        $minBid,
+        $campaign
+    ) {
+        return $this->client->getCommand(
+            'getBidAdvisor',
+            array(
+                'country' => $country,
+                'publishers' => $publishers,
+                'lists' => $lists,
+                'genders' => $genders,
+                'ages' => $ages,
+                'regions' => $regions,
+                'zones' => $zones,
+                'groups' => $groups,
+                'category' => $category,
+                'minBid' => $minBid,
+                'campaign' => $campaign
+            )
+        )->execute();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getCampaignSuppressionImports($campaignId)
     {
         return $this->client->getCommand(

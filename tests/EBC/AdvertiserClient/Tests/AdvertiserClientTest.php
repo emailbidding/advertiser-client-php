@@ -25,11 +25,23 @@ class AdvertiserClientTest extends TestCase
         $client = new AdvertiserClient();
 
         $plugin = new MockPlugin();
-        $plugin->addResponse(new Response(201));
+        $plugin->addResponse(new Response(200));
         $client->addSubscriber($plugin);
 
         $client->setAdvertiser(2, 'thekey', 'thesecret');
         $client->createCampaignSuppressionImport(1, 'source', 'location', 'data');
+    }
+
+    public function testGetBidAdvisor()
+    {
+        $client = new AdvertiserClient();
+
+        $plugin = new MockPlugin();
+        $plugin->addResponse(new Response(200));
+        $client->addSubscriber($plugin);
+
+        $client->setAdvertiser(2, 'thekey', 'thesecret');
+        $client->getBidAdvisor(1, 1, null, null, 1, null, null, null, 1, null, 1);
     }
 
     public function testGetCampaignSuppressionImports()

@@ -8,9 +8,9 @@
 
 namespace EBC\AdvertiserClient;
 
+use EBC\AdvertiserClient\BidAdvisor\BidAdvisor;
 use EBC\AdvertiserClient\Campaign\SuppressionImports;
 use EBC\AdvertiserClient\Campaign\SuppressionImportResponse;
-
 
 interface AdvertiserClientInterface
 {
@@ -22,6 +22,35 @@ interface AdvertiserClientInterface
      * @return AdvertiserClient
      */
     public function setAdvertiser($advertiserId, $key, $secret);
+
+    /**
+     * @param string    $country
+     * @param string    $publishers
+     * @param string    $lists
+     * @param string    $genders
+     * @param string    $ages
+     * @param string    $regions
+     * @param string    $zones
+     * @param string    $groups
+     * @param int       $category
+     * @param float     $minBid
+     * @param int       $campaign
+     *
+     * @return BidAdvisor
+     */
+    public function getBidAdvisor(
+        $country,
+        $publishers,
+        $lists,
+        $genders,
+        $ages,
+        $regions,
+        $zones,
+        $groups,
+        $category,
+        $minBid,
+        $campaign
+    );
 
     /**
      * @param integer $campaignId
