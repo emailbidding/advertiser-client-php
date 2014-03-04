@@ -119,6 +119,12 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
      */
     public function createCampaignSuppressionImport($campaignId, $source, $location, $data)
     {
+        /**
+         * - Check response code
+         * - deserialize
+         * - protected variable with serializer
+         */
+
         return $this->client->getCommand(
             'createCampaignSuppressionImport',
             array(
