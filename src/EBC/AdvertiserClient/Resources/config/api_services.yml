@@ -58,12 +58,12 @@ operations:
              minBid:
                 location: query
                 description: MinBid Id
-                type: float
+                type: string
                 required: false
              campaign:
                 location: query
                 description: Campaign Id
-                type: integer
+                type: string
                 required: true
 
     getCampaignSuppressionImports:
