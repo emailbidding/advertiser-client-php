@@ -54,17 +54,17 @@ operations:
                 location: query
                 description: Category Id
                 type: string
-                required: false
+                required: true
              minBid:
                 location: query
                 description: MinBid Id
-                type: integer
+                type: float
                 required: false
              campaign:
                 location: query
-                description: Zones Id
-                type: string
-                required: false
+                description: Campaign Id
+                type: integer
+                required: true
 
     getCampaignSuppressionImports:
         httpMethod: GET

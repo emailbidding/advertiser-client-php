@@ -84,8 +84,7 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
         $category,
         $minBid,
         $campaign
-    )
-    {
+    ) {
         return $this->client->getCommand(
             'getBidAdvisor',
             array(
