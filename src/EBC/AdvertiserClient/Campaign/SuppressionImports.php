@@ -38,4 +38,4 @@ class SuppressionImports implements CollectionInterface
     {
         $this->items = $items;
     }
-} 
+}

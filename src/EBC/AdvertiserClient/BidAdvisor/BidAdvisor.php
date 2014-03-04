@@ -16,72 +16,42 @@ namespace EBC\AdvertiserClient\BidAdvisor;
  */
 class BidAdvisor
 {
-    protected $country;
+    /**
+     * @var int $currentReach
+     */
+    protected $currentReach;
 
-    protected $publisher;
+    /**
+     * @var int $maximumReach
+     */
+    protected $maximumReach;
 
-    protected $lists;
+    /**
+     * @var array $pricePoints
+     */
+    protected $pricePoints;
 
-    protected $genders;
-
-    protected $ages;
-
-    protected $regions;
-
-    protected $zones;
-
-    protected $groups;
-
-    protected $category;
-
-    protected $minBid;
-
-    protected $campaign;
-
-    public function getCountry()
+    /**
+     * @return int
+     */
+    public function getCurrentReach()
     {
-        return $this->country;
-    }
-    public function getPublishers()
-    {
-        return $this->publisher;
-    }
-    public function getLists()
-    {
-        return $this->lists;
-    }
-    public function getGenders()
-    {
-        return $this->genders;
-    }
-    public function getAges()
-    {
-        return $this->ages;
-    }
-    public function getRegions()
-    {
-        return $this->regions;
-    }
-    public function getZones()
-    {
-        return $this->zones;
-    }
-    public function getGroups()
-    {
-        return $this->groups;
+        return $this->currentReach;
     }
 
-    public function getCategory()
+    /**
+     * @return int
+     */
+    public function getMaximumReach()
     {
-        return $this->category;
+        return $this->maximumReach;
     }
 
-    public function getMinBid()
+    /**
+     * @return array
+     */
+    public function getPricePoints()
     {
-        return $this->minBid;
-    }
-    public function getCampaign()
-    {
-        return $this->campaign;
+        return $this->pricePoints;
     }
 }

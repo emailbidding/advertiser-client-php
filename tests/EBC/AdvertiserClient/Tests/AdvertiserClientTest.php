@@ -41,7 +41,7 @@ class AdvertiserClientTest extends TestCase
         $client->addSubscriber($plugin);
 
         $client->setAdvertiser(2, 'thekey', 'thesecret');
-        $client->getBidAdvisor();
+        $client->getBidAdvisor(1, 1, null, null, 1, null, null, null, 1, null, 1);
     }
 
     public function testGetCampaignSuppressionImports()
