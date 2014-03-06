@@ -19,39 +19,39 @@ class InvalidImportResponse
     /**
      * @var integer
      */
-    protected $totalEmails;
+    protected $code;
 
     /**
-     * @var integer
+     * @var string
      */
-    protected $totalInvalidEmails;
+    protected $message;
 
     /**
      * @var array
      */
-    protected $invalidEmailsSample;
+    protected $errors;
 
     /**
      * @return integer
      */
-    public function getTotalEmails()
+    public function getCode()
     {
-        return $this->totalEmails;
+        return $this->code;
     }
 
     /**
-     * @return integer
+     * @return string
      */
-    public function getTotalInvalidEmails()
+    public function getMessage()
     {
-        return $this->totalInvalidEmails;
+        return $this->message;
     }
 
     /**
      * @return array
      */
-    public function getInvalidEmailsSample()
+    public function getErrors()
     {
-        return $this->invalidEmailsSample;
+        return $this->errors;
     }
 }

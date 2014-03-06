@@ -15,15 +15,23 @@ use EBT\EBDate\EBDateTime;
 use EBT\Fastc\Client as FastcClient;
 use EBT\Fastc\Listener\StatusCodeListener;
 use EBT\Fastc\Listener\ParseResponseListener;
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\Handler\HandlerRegistry;
 use EBT\EBDate\Serializer\EBDateTimeHandler;
+use JMS\Serializer\SerializerInterface;
 
 /**
  * AdvertiserClient
  */
 class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
 {
+
+    /**
+     * @var SerializerInterface
+     */
+    protected $serializer;
+
     /**
      * @param array $config
      */
@@ -34,10 +42,12 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
             array_merge($this->readYaml(__DIR__ . '/Resources/config/client_config.yml'), $config)
         );
 
+        $this->serializer = $this->getSerializer(__DIR__ . '/Resources/config/serializer', 'EBC\AdvertiserClient');
+
         $this->addSubscriber(new StatusCodeListener());
         $this->addSubscriber(
             new ParseResponseListener(
-                $this->getSerializer(__DIR__ . '/Resources/config/serializer', 'EBC\AdvertiserClient')
+                $this->serializer
             )
         );
     }
@@ -119,18 +129,22 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
      */
     public function createCampaignSuppressionImport($campaignId, $source, $location, $data)
     {
-        /**
-         * - Check response code
-         * - deserialize
-         * - protected variable with serializer
-         */
+        try {
+            return $this->client->getCommand(
+                'createCampaignSuppressionImport',
+                array(
+                    'campaignId'         => $campaignId,
+                    'suppression_import' => array('source' => $source, 'location' => $location, 'data' => $data)
+                )
+            )->execute();
+        } catch (ClientErrorResponseException $e) {
 
-        return $this->client->getCommand(
-            'createCampaignSuppressionImport',
-            array(
-                'campaignId'         => $campaignId,
-                'suppression_import' => array('source' => $source, 'location' => $location, 'data' => $data)
-            )
-        )->execute();
+            return $this->serializer->deserialize(
+                $e->getResponse()->getBody(),
+                'EBC\AdvertiserClient\Campaign\InvalidImportResponse',
+                'json'
+            );
+
+        }
     }
 }

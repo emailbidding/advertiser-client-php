@@ -1,8 +1,8 @@
 EBC\AdvertiserClient\Campaign\InvalidImportResponse:
     properties:
-        totalEmails:
+        code:
             type: integer
-        totalInvalidEmails:
-            type: integer
-        invalidEmailsSample:
+        message:
+            type: string
+        errors:
             type: array
