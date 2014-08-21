@@ -6,5 +6,5 @@ EBC\AdvertiserClient\BidAdvisor\BidAdvisor:
             type: integer
         suggestedBid:
             type: float
-        miBid:
+        minBid:
             type: float
