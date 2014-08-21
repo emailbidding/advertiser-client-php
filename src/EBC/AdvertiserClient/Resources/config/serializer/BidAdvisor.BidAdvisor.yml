@@ -4,5 +4,7 @@ EBC\AdvertiserClient\BidAdvisor\BidAdvisor:
             type: integer
         maximumReach:
             type: integer
-        pricePoints:
-            type: array
+        suggestedBid:
+            type: float
+        miBid:
+            type: float

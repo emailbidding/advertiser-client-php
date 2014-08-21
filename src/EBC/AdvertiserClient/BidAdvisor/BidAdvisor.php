@@ -17,19 +17,24 @@ namespace EBC\AdvertiserClient\BidAdvisor;
 class BidAdvisor
 {
     /**
-     * @var int $currentReach
+     * @var int
      */
     protected $currentReach;
 
     /**
-     * @var int $maximumReach
+     * @var int
      */
     protected $maximumReach;
 
     /**
-     * @var array $pricePoints
+     * @var float
      */
-    protected $pricePoints;
+    protected $suggestedBid;
+
+    /**
+     * @var float
+     */
+    protected $minBid;
 
     /**
      * @return int
@@ -48,10 +53,18 @@ class BidAdvisor
     }
 
     /**
-     * @return array
+     * @return float
      */
-    public function getPricePoints()
+    public function getSuggestedBid()
     {
-        return $this->pricePoints;
+        return $this->suggestedBid;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMinBid()
+    {
+        return $this->minBid;
     }
 }
