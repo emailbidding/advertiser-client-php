@@ -82,8 +82,10 @@ class AdvertiserClient extends FastcClient implements AdvertiserClientInterface
     /**
      * {@inheritdoc}
      */
-    public function getCampaignSuppressionImports($campaignId)
+    public function getCampaignSuppressionImports($campaignId, $timeout = 5)
     {
+        $this->client->getConfig()->setPath('request.options/timeout', $timeout);
+
         return $this->client->getCommand(
             'getCampaignSuppressionImports',
             array('campaignId' => $campaignId)

@@ -25,10 +25,11 @@ interface AdvertiserClientInterface
 
     /**
      * @param integer $campaignId
+     * @param integer $timeout
      *
      * @return SuppressionImports
      */
-    public function getCampaignSuppressionImports($campaignId);
+    public function getCampaignSuppressionImports($campaignId, $timeout = 5);
 
     /**
      * @param integer $campaignId
